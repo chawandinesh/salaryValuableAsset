@@ -1,5 +1,13 @@
 import React from 'react';
-import {View, Text, Dimensions, TouchableOpacity, FlatList, ImageBackground} from 'react-native';
+import {
+  View,
+  Text,
+  Dimensions,
+  TouchableOpacity,
+  FlatList,
+  Image,
+  ImageBackground,
+} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {useIsFocused} from '@react-navigation/native';
 import {SalaryContext} from '../screens/context';
@@ -77,22 +85,97 @@ const Details = (props) => {
           alignItems: 'center',
         }}>
         <View style={{flexDirection: 'row'}}>
-          <View style={{width: width * 0.3,height: height * 0.15, backgroundColor:'#90f', justifyContent:'center', alignItems:'center'}}>
-            <View style={{width: width * 0.28, height: height *0.14, backgroundColor:'#fff'}}>
-
+          <View
+            style={{
+              width: width * 0.3,
+              height: height * 0.15,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <View
+              style={{
+                width: width * 0.28,
+                height: height * 0.14,
+                backgroundColor: '#fff',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              {item.image ? (
+                <Image
+                  source={{uri: item.image}}
+                  style={{height: height * 0.14, width: width * 0.28}}
+                />
+              ) : (
+                <Icon
+                  name="image-off-outline"
+                  type="material-community"
+                  size={height * 0.1}
+                />
+              )}
             </View>
-
-
           </View>
-          <View style={{width: width * 0.6,height: height * 0.15, backgroundColor:'#290', alignItems:'center', justifyContent:'space-around'}}>
-            <View style={{width: width * 0.5, height: height * 0.05, backgroundColor:'#fff'}}>
-              
+          <View
+            style={{
+              width: width * 0.6,
+              height: height * 0.15,
+              backgroundColor: '#230',
+              borderWidth: 4,
+              borderLeftWidth: 0,
+              borderColor: '#89f',
+              alignItems: 'center',
+              justifyContent: 'space-around',
+            }}>
+            <View
+              style={{
+                width: width * 0.5,
+                height: height * 0.05,
+                backgroundColor: '#fff',
+                alignItems: 'center',
+                flexDirection: 'row',
+              }}>
+              <View>
+                <Text style={{fontWeight: 'bold', fontSize: height * 0.03}}>
+                  Name :
+                </Text>
+              </View>
+              <View>
+                <Text
+                  style={{
+                    fontWeight: 'bold',
+                    fontSize: height * 0.03,
+                    color: 'red',
+                    marginLeft: width * 0.03,
+                  }}>
+                  {item.name ? item.name : '-'}
+                </Text>
+              </View>
             </View>
 
-            <View style={{width: width * 0.5, height: height * 0.05, backgroundColor:'#fff'}}>
-              
+            <View
+              style={{
+                width: width * 0.5,
+                height: height * 0.05,
+                backgroundColor: '#fff',
+                alignItems: 'center',
+                flexDirection: 'row',
+              }}>
+              <View>
+                <Text style={{fontWeight: 'bold', fontSize: height * 0.03}}>
+                  Date :
+                </Text>
+              </View>
+              <View>
+                <Text
+                  style={{
+                    fontWeight: 'bold',
+                    fontSize: height * 0.025,
+                    color: 'red',
+                    marginLeft: width * 0.03,
+                  }}>
+                  {item.dateOfJoining ? item.dateOfJoining : '-'}
+                </Text>
+              </View>
             </View>
-
           </View>
           {/* <Text
             style={{
@@ -142,7 +225,9 @@ const Details = (props) => {
     );
   };
   return (
-    <ImageBackground source={require('../assets/bg5.jpg')} style={{height: height, width: width, backgroundColor: '#fff'}}>
+    <ImageBackground
+      source={require('../assets/bg5.jpg')}
+      style={{height: height, width: width, backgroundColor: '#fff'}}>
       <Header />
 
       {Array.isArray(state[data]) && state[data].length ? (
@@ -170,7 +255,7 @@ const Details = (props) => {
               borderTopRightRadius: height * 0.05,
               borderBottomWidth: height * 0.015,
               borderLeftWidth: height * 0.01,
-              borderColor:'#fff',
+              borderColor: '#fff',
               width: width * 0.8,
               height: height * 0.2,
             }}>

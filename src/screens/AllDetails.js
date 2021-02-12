@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, Dimensions, TouchableOpacity, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  Dimensions,
+  TouchableOpacity,
+  FlatList,
+  ImageBackground,
+} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {useIsFocused} from '@react-navigation/native';
 import {SalaryContext} from '../screens/context';
@@ -23,7 +30,7 @@ const AllDetails = (props) => {
         style={{
           height: height * 0.1,
           width: width,
-          backgroundColor: 'blue',
+          backgroundColor: '#121',
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -54,58 +61,117 @@ const AllDetails = (props) => {
   };
   const renderDetails = ({item, index}) => {
     return (
-      <View
+      <TouchableOpacity
         style={{
           height: height * 0.15,
           width: width * 0.9,
-          backgroundColor: 'gray',
+          backgroundColor: '#567085',
           marginTop: height * 0.03,
           justifyContent: 'center',
           alignItems: 'center',
-          // flexDirection: 'row',
         }}>
         <View style={{flexDirection: 'row'}}>
-          <Text
+          <View
             style={{
-              fontSize: height * 0.03,
-              fontWeight: 'bold',
-              color: '#fff',
+              width: width * 0.3,
+              height: height * 0.15,
+              justifyContent: 'center',
+              alignItems: 'center',
             }}>
-            Name :
-          </Text>
-          <Text
+            <View
+              style={{
+                width: width * 0.28,
+                height: height * 0.14,
+                backgroundColor: '#fff',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              {item.image ? (
+                <Image
+                  source={{uri: item.image}}
+                  style={{height: height * 0.14, width: width * 0.28}}
+                />
+              ) : (
+                <Icon
+                  name="image-off-outline"
+                  type="material-community"
+                  size={height * 0.1}
+                />
+              )}
+            </View>
+          </View>
+          <View
             style={{
-              fontSize: height * 0.03,
-              fontWeight: 'bold',
-              color: '#fff',
+              width: width * 0.6,
+              height: height * 0.15,
+              backgroundColor: '#230',
+              borderWidth: 4,
+              borderLeftWidth: 0,
+              borderColor: '#89f',
+              alignItems: 'center',
+              justifyContent: 'space-around',
             }}>
-            {item.name}
-          </Text>
+            <View
+              style={{
+                width: width * 0.5,
+                height: height * 0.05,
+                backgroundColor: '#fff',
+                alignItems: 'center',
+                flexDirection: 'row',
+              }}>
+              <View>
+                <Text style={{fontWeight: 'bold', fontSize: height * 0.03}}>
+                  Name :
+                </Text>
+              </View>
+              <View>
+                <Text
+                  style={{
+                    fontWeight: 'bold',
+                    fontSize: height * 0.03,
+                    color: 'red',
+                    marginLeft: width * 0.03,
+                  }}>
+                  {item.name ? item.name : '-'}
+                </Text>
+              </View>
+            </View>
+
+            <View
+              style={{
+                width: width * 0.5,
+                height: height * 0.05,
+                backgroundColor: '#fff',
+                alignItems: 'center',
+                flexDirection: 'row',
+              }}>
+              <View>
+                <Text style={{fontWeight: 'bold', fontSize: height * 0.03}}>
+                  Date :
+                </Text>
+              </View>
+              <View>
+                <Text
+                  style={{
+                    fontWeight: 'bold',
+                    fontSize: height * 0.025,
+                    color: 'red',
+                    marginLeft: width * 0.03,
+                  }}>
+                  {item.dateOfJoining ? item.dateOfJoining : '-'}
+                </Text>
+              </View>
+            </View>
+          </View>
         </View>
-        <View style={{flexDirection: 'row'}}>
-          <Text
-            style={{
-              fontSize: height * 0.03,
-              fontWeight: 'bold',
-              color: '#fff',
-            }}>
-            Date :
-          </Text>
-          <Text
-            style={{
-              fontSize: height * 0.03,
-              fontWeight: 'bold',
-              color: '#fff',
-            }}>
-            {item.dateOfJoining}
-          </Text>
-        </View>
-      </View>
+      </TouchableOpacity>
     );
   };
   const arraydata = Object.values(state).flat();
   return (
-    <View style={{height: height, width: width, backgroundColor: '#fff'}}>
+    <ImageBackground
+      source={require('../assets/bg4.jpg')}
+      style={{height: height, width: width}}>
       <Header />
 
       {Array.isArray(arraydata) && arraydata.length ? (
@@ -123,18 +189,33 @@ const AllDetails = (props) => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <View></View>
-          <Text
+          <View
             style={{
-              fontSize: height * 0.04,
-              fontWeight: 'bold',
-              color: '#fdf',
+              backgroundColor: '#9e5823',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: 10,
+              borderBottomLeftRadius: height * 0.05,
+              borderTopRightRadius: height * 0.05,
+              borderBottomWidth: height * 0.015,
+              borderLeftWidth: height * 0.01,
+              borderColor: '#fff',
+              width: width * 0.8,
+              height: height * 0.2,
             }}>
-            No Data
-          </Text>
+            <Text
+              style={{
+                fontSize: height * 0.03,
+                fontWeight: 'bold',
+                color: '#fdf',
+              }}>
+              No Data Found, Please Click on + icon to add the data on Details
+              screen
+            </Text>
+          </View>
         </View>
       )}
-    </View>
+    </ImageBackground>
   );
 };
 

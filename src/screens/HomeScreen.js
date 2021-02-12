@@ -6,6 +6,7 @@ import {
   Modal,
   Image,
   ImageBackground,
+  Alert,
   Dimensions,
   StyleSheet,
 } from 'react-native';

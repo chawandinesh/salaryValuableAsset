@@ -30,6 +30,11 @@ export default function Form(props) {
     }
   }, []);
 
+  const handleDelete = () => {
+    setState({...state, [data]: state[data].filter((e, idx) => idx !== index)});
+    props.navigation.goBack();
+  };
+
   const pickImage = () => {
     ImagePicker.openPicker({
       width: 300,
@@ -46,21 +51,20 @@ export default function Form(props) {
 
   const handleSubmit = () => {
     //update
-     
-    if(index === 0 || index) {
-      console.log("update");
+
+    if (index === 0 || index) {
+      console.log('update');
       [...state[data].splice(index, 1, formState)];
       setState(state);
-    
-      //update
-    }else{
-      //create
-        console.log("create")
-          setState({...state, [data]: [...state[data], formState]});
-          console.log(data);
-    }
-    props.navigation.goBack()
 
+      //update
+    } else {
+      //create
+      console.log('create');
+      setState({...state, [data]: [...state[data], formState]});
+      console.log(data);
+    }
+    props.navigation.goBack();
   };
   return (
     <ImageBackground source={require('../assets/bg1.jpeg')} style={{flex: 1}}>
@@ -91,9 +95,19 @@ export default function Form(props) {
               fontWeight: 'bold',
               color: '#fff',
             }}>
-           { index === 0 || index ? "Edit Details"  : "Add Details" }
+            {index === 0 || index ? 'Edit Details' : 'Add Details'}
           </Text>
-          <Text></Text>
+          {index === 0 || index ? (
+            <Icon
+              onPress={() => handleDelete()}
+              name="trash"
+              type="ionicon"
+              color="red"
+              size={height * 0.03}
+              style={{paddingLeft: height * 0.01, padding: 3}}
+              activeOpacity={0.5}
+            />
+          ) : <View></View>}
         </View>
         <View style={{marginTop: height * 0.1}}>
           <View style={{alignItems: 'center'}}>
@@ -102,7 +116,7 @@ export default function Form(props) {
                 height: height * 0.08,
                 justifyContent: 'center',
                 width: width * 0.94,
-                backgroundColor: '#a0fafa',
+                backgroundColor: '#affafa',
                 marginBottom: height * 0.02,
               }}>
               <TextInput

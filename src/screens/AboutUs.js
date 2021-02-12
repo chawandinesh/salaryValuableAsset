@@ -40,7 +40,7 @@ export default function AboutUs(props) {
   };
 
   return (
-    <ImageBackground source={require('../assets/bg1.jpeg')} style={{flex: 1}}>
+    <ImageBackground source={require('../assets/bg4.jpg')} style={{flex: 1}}>
       <Header />
       <View
         style={{
