@@ -8,7 +8,8 @@ export default function AboutUs(props) {
       <View
         style={{
           width,
-          height: height * 0.1,
+          paddingTop: height * 0.05,
+          height: height * 0.15,
           backgroundColor: '#121',
           flexDirection: 'row',
           justifyContent: 'space-between',
@@ -50,18 +51,57 @@ export default function AboutUs(props) {
         }}>
         <View
           style={{
-            height: height * 0.5,
-            width: width * 0.8,
+            height: height * 0.7,
+            width: width * 0.9,
             backgroundColor: 'rgba(0,0,0,0.7)',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}>
-          <Text
+          <View
             style={{
-              fontSize: height * 0.03,
-              fontWeight: 'bold',
-              color: '#fff',
+              paddingHorizontal: height * 0.02,
             }}>
-            sljfsljflajldsj sljfdlsjf
-          </Text>
+            <Text
+              style={{
+                fontSize: height * 0.03,
+                fontWeight: 'bold',
+                color: '#ebe459',
+                textAlign: 'center',
+              }}>
+              This is simple, amazing and ads free app for functions.
+            </Text>
+            <Text
+              style={{
+                fontSize: height * 0.03,
+                fontWeight: 'bold',
+                color: '#fff',
+                textAlign: 'center',
+                paddingTop: height * 0.04,
+              }}>
+              In this app, there are various types of salary categories Full
+              time, Part time, Casual, Fixed Terms.
+            </Text>
+            <Text
+              style={{
+                fontSize: height * 0.03,
+                fontWeight: 'bold',
+                color: '#fff',
+                textAlign: 'center',
+                paddingTop: height * 0.05,
+              }}>
+              Also in this app, you can manage your function details.{"\n"}
+            </Text>
+            <Text
+              style={{
+                fontSize: height * 0.03,
+                fontWeight: 'bold',
+                color: '#f66',
+                textAlign: 'center',
+                paddingTop: height * 0.01,
+              }}>
+              Enjoy the App
+            </Text>
+          </View>
         </View>
       </View>
     </ImageBackground>

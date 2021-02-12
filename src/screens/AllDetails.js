@@ -28,7 +28,8 @@ const AllDetails = (props) => {
     return (
       <View
         style={{
-          height: height * 0.1,
+          paddingTop: height * 0.05,
+          height: height * 0.15,
           width: width,
           backgroundColor: '#121',
           flexDirection: 'row',

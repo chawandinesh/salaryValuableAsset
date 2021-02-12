@@ -17,7 +17,8 @@ export default function Categories(props) {
       <View
         style={{
           width,
-          height: height * 0.1,
+          paddingTop: height * 0.05,
+          height: height * 0.15,
           backgroundColor: '#121',
           flexDirection: 'row',
           justifyContent: 'space-between',
@@ -87,23 +88,6 @@ export default function Categories(props) {
           </Text>
         </View>
       </TouchableOpacity>
-      // <TouchableOpacity
-      //   onPress={() => props.navigation.navigate('Details', {data: item})}
-      //   style={{
-      //     width: width * 0.9,
-      //     height: height * 0.17,
-      //     borderWidth: 2,
-      //     borderRadius: height * 0.03,
-      //     justifyContent: 'center',
-      //     alignItems: 'center',
-      //     marginTop: height * 0.035,
-      //     // backgroundColor: '#425df5',
-      //   }}>
-      //   <Text
-      //     style={{color: '#fff', fontSize: height * 0.04, fontWeight: 'bold'}}>
-      //     {item}
-      //   </Text>
-      // </TouchableOpacity>
     );
   };
 

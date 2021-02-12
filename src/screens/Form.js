@@ -72,7 +72,8 @@ export default function Form(props) {
         <View
           style={{
             width,
-            height: height * 0.1,
+            paddingTop: height * 0.05,
+            height: height * 0.15,
             backgroundColor: '#000',
             flexDirection: 'row',
             //   backgroundColor: 'transparent',
@@ -107,7 +108,9 @@ export default function Form(props) {
               style={{paddingLeft: height * 0.01, padding: 3}}
               activeOpacity={0.5}
             />
-          ) : <View></View>}
+          ) : (
+            <View></View>
+          )}
         </View>
         <View style={{marginTop: height * 0.1}}>
           <View style={{alignItems: 'center'}}>
@@ -224,7 +227,14 @@ export default function Form(props) {
                   style={{height: height * 0.1, width: height * 0.1}}
                 />
               ) : (
-                <Text> No Image</Text>
+                <View
+                  style={{
+                    height: height * 0.1,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <Text> No Image</Text>
+                </View>
               )}
             </TouchableOpacity>
             <View>
@@ -261,6 +271,9 @@ export default function Form(props) {
                 alignItems: 'center',
                 justifyContent: 'center',
                 height: height * 0.09,
+                borderBottomWidth: 8,
+                borderLeftWidth: 4, 
+                borderRightWidth: 4,
                 backgroundColor: '#787',
                 borderRadius: height * 0.03,
               }}>

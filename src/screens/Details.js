@@ -32,7 +32,8 @@ const Details = (props) => {
     return (
       <View
         style={{
-          height: height * 0.1,
+          paddingTop: height * 0.05,
+          height: height * 0.15,
           width: width,
           backgroundColor: '#121',
           flexDirection: 'row',
@@ -177,49 +178,6 @@ const Details = (props) => {
               </View>
             </View>
           </View>
-          {/* <Text
-            style={{
-              fontSize: height * 0.03,
-              fontWeight: 'bold',
-              color: '#fff',
-            }}>
-            Name :
-          </Text>
-          <Text
-            style={{
-              fontSize: height * 0.03,
-              fontWeight: 'bold',
-              color: '#fff',
-            }}>
-            {item.name}
-          </Text>
-        </View>
-        <View style={{flexDirection: 'row'}}>
-          <Text
-            style={{
-              fontSize: height * 0.03,
-              fontWeight: 'bold',
-              color: '#fff',
-            }}>
-            Date :
-          </Text>
-          <Text
-            style={{
-              fontSize: height * 0.03,
-              fontWeight: 'bold',
-              color: '#fff',
-            }}>
-            {item.dateOfJoining}
-          </Text>
-        </View>
-        <View>
-          <Icon
-            name="ios-trash-outline"
-            type="ionicon"
-            color="red"
-            size={height * 0.03}
-            onPress={() => handleDelete(index)}
-          /> */}
         </View>
       </TouchableOpacity>
     );
